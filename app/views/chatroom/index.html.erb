@@ -7,14 +7,17 @@
     <div class='ui fluid raised card chatbox'>
       <div class='ui content'>
         <div class="ui small feed">
-          <h4 class="ui header">Followers Activity</h4>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <b>Christian Rocha:</b> Hello!
+          <% if @messages.any? %>
+            <% @messages.each do |message| %>
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                    <b><%= message.user.username%>:</b> <%= message.body %>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="extra content">
